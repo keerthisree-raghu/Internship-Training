@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Q8 {
 	public static void main(String[] args) {
-		int[] arr = new int[5];
+		int[] arr = new int[10];
 		int sum = 0, average = 0;
 		boolean exceptionOccured;
 		Scanner scan = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class Q8 {
 					sum += arr[i];
 				}
 				average = sum / 10;
-				System.out.println("Average = " + sum);
+				System.out.println("Average = " + average);
 			}
 			catch(NumberFormatException e) {
 				exceptionOccured = true;

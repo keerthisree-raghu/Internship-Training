@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Q9 {
 	public static void main(String[] args) throws InvalidInputException {
-		int[] arr = new int[5];
+		int[] arr = new int[10];
 		int sum = 0, average = 0;
 		boolean exceptionOccured;
 		Scanner scan = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class Q9 {
 					}
 				}
 				average = sum / 10;
-				System.out.println("Average = " + sum);
+				System.out.println("Average = " + average);
 			}
 			catch(Exception e) {
 				exceptionOccured = true;
