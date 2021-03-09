@@ -66,6 +66,17 @@ public class XMLtoExcelConverter implements WriteToExcel {
 				NodeList items = element.getElementsByTagName("item");
 				int itemsSize = items.getLength();
 				
+				Row row = sheet.createRow(rowNum++);
+				
+				Cell cell = row.createCell(INVOICE_NO);
+				cell.setCellValue(invoiceNo);
+				
+				cell = row.createCell(INVOICE_DATE);
+				cell.setCellValue(invoiceDate);
+				
+				cell = row.createCell(CUSTOMER_NAME);
+				cell.setCellValue(customerName);
+				
 				for(int j = 0; j < itemsSize; j++) {
 					Node eachItem = items.item(j);
 					if(eachItem.getNodeType() == Node.ELEMENT_NODE) {
@@ -76,16 +87,7 @@ public class XMLtoExcelConverter implements WriteToExcel {
 						String quantity = it.getElementsByTagName("quantity").item(0).getTextContent();
 						String amount = it.getElementsByTagName("amount").item(0).getTextContent();
 					
-						Row row = sheet.createRow(rowNum++);
-						
-						Cell cell = row.createCell(INVOICE_NO);
-						cell.setCellValue(invoiceNo);
-						
-						cell = row.createCell(INVOICE_DATE);
-						cell.setCellValue(invoiceDate);
-						
-						cell = row.createCell(CUSTOMER_NAME);
-						cell.setCellValue(customerName);
+						row = sheet.createRow(rowNum++);
 						
 						cell = row.createCell(ITEM_NO);
 						cell.setCellValue(itemNo);
@@ -101,14 +103,15 @@ public class XMLtoExcelConverter implements WriteToExcel {
 						
 						cell = row.createCell(AMOUNT);
 						cell.setCellValue(amount);
-						
-						cell = row.createCell(GST);
-						cell.setCellValue(gst);
-						
-						cell = row.createCell(NET_TOTAL);
-						cell.setCellValue(netTotal);
 					}
 				}
+				row = sheet.createRow(rowNum++);
+				
+				cell = row.createCell(GST);
+				cell.setCellValue(gst);
+				
+				cell = row.createCell(NET_TOTAL);
+				cell.setCellValue(netTotal);
 			}
 		}
 		
@@ -124,7 +127,7 @@ public class XMLtoExcelConverter implements WriteToExcel {
 //			}
 //		}
 		
-		System.out.println("Process finished successfully.");
+		System.out.println("The XML file has been successfully converted to an Excel file.");
 	}
 	
 	private static void initXLSWorkbook() {
