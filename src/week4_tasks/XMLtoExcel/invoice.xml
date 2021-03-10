@@ -1,0 +1,24 @@
+<?xml version="1.0"?> 
+<invoice>
+	<invoiceNo>0001</invoiceNo>
+	<invoiceDate>09/03/2021</invoiceDate>
+	<customerName>John Doe</customerName>
+	<items>
+		<item>
+			<itemNo>1</itemNo>
+			<itemName>Daal</itemName>
+			<itemPrice>20</itemPrice>
+			<quantity>2</quantity>
+			<amount>40</amount>
+		</item>
+		<item>
+			<itemNo>2</itemNo>
+			<itemName>Rice</itemName>
+			<itemPrice>50</itemPrice>
+			<quantity>1</quantity>
+			<amount>50</amount>
+		</item>
+	</items>
+	<gst>10</gst>
+	<netTotal>100</netTotal>
+</invoice>
