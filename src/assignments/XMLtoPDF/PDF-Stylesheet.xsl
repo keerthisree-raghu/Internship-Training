@@ -3,7 +3,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	exclude-result-prefixes="fo">
-	<xsl:template match="invoice">
+	<xsl:template match="Invoice">
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<fo:layout-master-set>
 				<fo:simple-page-master master-name="simpleA4"
@@ -17,17 +17,22 @@
 					<fo:block font-size="12pt" font-weight="bold"
 						space-after="5mm">
 						Invoice Number:
-						<xsl:value-of select="invoiceNo" />
+						<xsl:value-of select="InvoiceNumber" />
 					</fo:block>
 					<fo:block font-size="12pt" font-weight="bold"
 						space-after="5mm">
 						Invoice Date:
-						<xsl:value-of select="invoiceDate" />
+						<xsl:value-of select="InvoiceDate" />
+					</fo:block>
+					<fo:block font-size="12pt" font-weight="bold"
+						space-after="5mm">
+						Customer ID:
+						<xsl:value-of select="CustomerID" />
 					</fo:block>
 					<fo:block font-size="12pt" font-weight="bold"
 						space-after="5mm">
 						Customer Name:
-						<xsl:value-of select="customerName" />
+						<xsl:value-of select="CustomerName" />
 					</fo:block>
 					<fo:block font-size="11pt">
 						<fo:table table-layout="fixed" width="100%"
@@ -55,18 +60,18 @@
 								</fo:table-cell>
 							</fo:table-header>
 							<fo:table-body>
-								<xsl:apply-templates select="items" />
+								<xsl:apply-templates select="Items" />
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
 					<fo:block font-size="11pt" space-before="5mm"
 						space-after="5mm">
 						GST:
-						<xsl:value-of select="gst" />
+						<xsl:value-of select="GST" />
 					</fo:block>
 					<fo:block font-size="11pt" space-after="5mm">
 						Net Total:
-						<xsl:value-of select="netTotal" />
+						<xsl:value-of select="Total" />
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
@@ -76,27 +81,27 @@
 		<fo:table-row>
 			<fo:table-cell>
 				<fo:block>
-					<xsl:value-of select="itemNo" />
+					<xsl:value-of select="ItemNo" />
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block>
-					<xsl:value-of select="itemName" />
+					<xsl:value-of select="ItemName" />
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block>
-					<xsl:value-of select="itemPrice" />
+					<xsl:value-of select="ItemPrice" />
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block>
-					<xsl:value-of select="quantity" />
+					<xsl:value-of select="Quantity" />
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block>
-					<xsl:value-of select="amount" />
+					<xsl:value-of select="Amount" />
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>

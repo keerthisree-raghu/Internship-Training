@@ -98,7 +98,7 @@ public class Customer implements CustomerDAO {
 			conn = DBUtility.getConnection();
 			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-			String updateQuery = "update Customer set customerName = ?, customerAddress = ?, customerEmail = ?, customerEmail = ? where customerID = ?;";
+			String updateQuery = "update Customer set customerName = ?, customerAddress = ?, customerEmail = ?, customerPhone = ? where customerID = ?;";
 
 			PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
 

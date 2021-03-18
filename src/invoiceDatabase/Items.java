@@ -102,17 +102,16 @@ public class Items implements ItemsDAO {
 	}
 
 	@Override
-	public int deleteItemDetails(int invoiceNumber, int itemNumber) {
+	public int deleteItemDetails(int invoiceNumber) {
 		int rowsDeleted = 0;
 		try {
 			conn = DBUtility.getConnection();
 
-			String deleteQuery = "delete from Items where invoiceNo = ? and itemNo = ?;";
+			String deleteQuery = "delete from Items where invoiceNo = ?;";
 
 			PreparedStatement preparedStatement = conn.prepareStatement(deleteQuery);
 
 			preparedStatement.setInt(1, invoiceNumber);
-			preparedStatement.setInt(2, itemNumber);
 
 			rowsDeleted = preparedStatement.executeUpdate();
 
@@ -122,22 +121,21 @@ public class Items implements ItemsDAO {
 			DBUtility.closeConnection(e);
 			e.printStackTrace();
 		}
-		System.out.println("Item " + itemNumber + " deleted.");
+		System.out.println("Item has been deleted.");
 		return rowsDeleted;
 	}
 
 	@Override
-	public ItemsDTO getItemDetails(int invoiceNumber, int itemNumber) {
+	public ItemsDTO getItemDetails(int invoiceNumber) {
 		ItemsDTO itemsDTO = new ItemsDTO();
 		try {
 			conn = DBUtility.getConnection();
 
-			String selectQuery = "select * from Items where invoiceNo = ? and itemNo = ?;";
+			String selectQuery = "select * from Items where invoiceNo = ?;";
 
 			PreparedStatement preparedStatement = conn.prepareStatement(selectQuery);
 
 			preparedStatement.setInt(1, invoiceNumber);
-			preparedStatement.setInt(2, itemNumber);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			ResultSetMetaData resultSetMeta = resultSet.getMetaData();

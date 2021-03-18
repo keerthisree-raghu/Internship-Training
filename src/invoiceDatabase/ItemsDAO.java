@@ -7,9 +7,9 @@ public interface ItemsDAO {
 
 	public int updateItemDetails(ItemsDTO itemsDTO);
 
-	public int deleteItemDetails(int invoiceNumber, int itemNumber);
+	public int deleteItemDetails(int invoiceNumber);
 
-	public ItemsDTO getItemDetails(int invoiceNumber, int itemNumber);
+	public ItemsDTO getItemDetails(int invoiceNumber);
 
 	public Set<ItemsDTO> getItemDetailsAll();
 }

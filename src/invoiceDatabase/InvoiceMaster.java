@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class InvoiceMaster implements InvoiceMasterDAO {
 	Connection conn;
-
+	
 	@Override
 	public int insertInvoice(InvoiceMasterDTO invoiceMasterDTO) {
 		int rowsInserted = 0;
@@ -86,7 +86,7 @@ public class InvoiceMaster implements InvoiceMasterDAO {
 			conn = DBUtility.getConnection();
 			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-			String updateQuery = "update InvoiceMaster set invoiceDate = ?, customerNo = ? where invoiceNo = ?;";
+			String updateQuery = "update InvoiceMaster set invoiceDate = ?, customerId = ? where invoiceNo = ?;";
 
 			PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
 

@@ -20,11 +20,6 @@ interface WriteToPDF {
 }
 
 public class XMLtoPDFConverter implements WriteToPDF {
-	public static void main(String[] args) throws Exception {
-		XMLtoPDFConverter xmlToPDF = new XMLtoPDFConverter();
-//		xmlToPDF.convertXMLtoPDF(args[0]);
-		xmlToPDF.convertXMLtoPDF("C:/workspace/EYInternshipTraining/src/assignments/XMLtoPDF/invoice.xml");
-	}
 	@Override
 	public void convertXMLtoPDF(String filePath) throws Exception {
 		// XSL style sheet FO file

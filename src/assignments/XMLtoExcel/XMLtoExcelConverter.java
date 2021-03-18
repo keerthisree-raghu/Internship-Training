@@ -107,7 +107,7 @@ public class XMLtoExcelConverter implements WriteToExcel {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(xmlFile);
 		
-		NodeList nodeList = doc.getElementsByTagName("invoice");
+		NodeList nodeList = doc.getElementsByTagName("Invoice");
 		int nodeListSize = nodeList.getLength();
 		
 		for(int i = 0; i < nodeListSize; i++) {
@@ -115,13 +115,14 @@ public class XMLtoExcelConverter implements WriteToExcel {
 			Node node = nodeList.item(i);
 			if(node.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) node;
-				String invoiceNo = element.getElementsByTagName("invoiceNo").item(0).getTextContent();
-				String invoiceDate = element.getElementsByTagName("invoiceDate").item(0).getTextContent();
-				String customerName = element.getElementsByTagName("customerName").item(0).getTextContent();
-				String gst = element.getElementsByTagName("gst").item(0).getTextContent();
-				String netTotal = element.getElementsByTagName("netTotal").item(0).getTextContent();
+				String invoiceNo = element.getElementsByTagName("InvoiceNumber").item(0).getTextContent();
+				String invoiceDate = element.getElementsByTagName("InvoiceDate").item(0).getTextContent();
+				String customerID = element.getElementsByTagName("CustomerID").item(0).getTextContent();
+				String customerName = element.getElementsByTagName("CustomerName").item(0).getTextContent();
+				String gst = element.getElementsByTagName("GST").item(0).getTextContent();
+				String netTotal = element.getElementsByTagName("Total").item(0).getTextContent();
 				
-				NodeList items = element.getElementsByTagName("item");
+				NodeList items = element.getElementsByTagName("Item");
 				int itemsSize = items.getLength();
 				
 				Row row = sheet.createRow(rowNum++);
@@ -139,11 +140,11 @@ public class XMLtoExcelConverter implements WriteToExcel {
 					Node eachItem = items.item(j);
 					if(eachItem.getNodeType() == Node.ELEMENT_NODE) {
 						Element it = (Element) eachItem;
-						String itemNo = it.getElementsByTagName("itemNo").item(0).getTextContent();
-						String itemName = it.getElementsByTagName("itemName").item(0).getTextContent();
-						String itemPrice = it.getElementsByTagName("itemPrice").item(0).getTextContent();
-						String quantity = it.getElementsByTagName("quantity").item(0).getTextContent();
-						String amount = it.getElementsByTagName("amount").item(0).getTextContent();
+						String itemNo = it.getElementsByTagName("ItemNo").item(0).getTextContent();
+						String itemName = it.getElementsByTagName("ItemName").item(0).getTextContent();
+						String itemPrice = it.getElementsByTagName("ItemPrice").item(0).getTextContent();
+						String quantity = it.getElementsByTagName("Quantity").item(0).getTextContent();
+						String amount = it.getElementsByTagName("Amount").item(0).getTextContent();
 					
 						row = sheet.createRow(rowNum++);
 						
@@ -173,7 +174,7 @@ public class XMLtoExcelConverter implements WriteToExcel {
 			}
 		}
 		
-		FileOutputStream fileOut = new FileOutputStream("C:/workspace/EYInternshipTraining/Converted-Invoice-Excel.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("C:/workspace/EYInternshipTraining/assignment/RMIServer/Output/Converted-Invoice-Excel.xlsx");
 		workbook.write(fileOut);
 		workbook.close();
 		fileOut.close();

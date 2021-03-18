@@ -8,5 +8,5 @@ public interface TrackParcel {
 	
 	public boolean checkWeekend(LocalDate date);
 
-	public String calculateArrivalDate(ConsignmentDetails details);
+	public String calculateArrivalDate(ConsignmentDetails details, int invoiceNumber);
 }
