@@ -1,0 +1,39 @@
+<html>
+
+<body>
+    <script>
+        var ajaxObj = new XMLHttpRequest();
+        function makeAjaxCall(url) {
+            // alert("hello");
+            var target = document.getElementById("targetDiv");
+            ajaxObj.open("GET", url);
+            ajaxObj.onreadystatechange = function () {
+                if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
+                    var response = ajaxObj.responseXML;
+                    // alert(response.xml);
+                    target.innerHTML=response.documentElement.nodeName;
+                    var rootelement = response.documentElement;
+                    alert(rootelement.nodeName);
+
+                    for (var i = 0; i < rootelement.childNodes.length; i++) {
+                        for (var j = 0; j < rootelement.childNodes.item(i).childNodes.length; j++) {
+                            alert(rootelement.childNodes.item(i).childNodes.item(j).firstChild.nodeValue);
+                        }
+                    }
+                }
+            }
+            ajaxObj.send(null); // Request is made
+        }
+
+    </script>
+
+    <form>
+        <input type="button" onClick="makeAjaxCall('http://localhost:80/ajax/books.xml')" value="MakeAjaxCall"></input>
+    </form>
+
+    <div id="targetDiv">
+        Displays data from the server.
+    </div>
+</body>
+
+</html>
