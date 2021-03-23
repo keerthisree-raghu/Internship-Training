@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Forms</title>
+</head>
+<body>
+	Changing status line.
+	<br>
+	<form name="Simple">
+		First Value: <input type="text" size="65" name="input1" value=" "><br>
+		<input type="button" value="Change"
+			onClick="window.status=document.Simple.input1.value;"><br>
+	</form>
+
+	<form name="Simple">
+		Value: <input type="text"
+			onChange=" if (parseInt(this.value) <= 5) {
+               alert('Please enter a number greater than 5.');
+           } ">
+		<br>
+	</form>
+</body>
+</html>

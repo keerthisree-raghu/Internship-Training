@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>setTimeout Method</title>
+</head>
+<body>
+	Update page every 2 seconds.
+	<br>
+	<script>
+		var counter = 0;
+		// call Update function in 2 seconds after first load
+		ID = window.setTimeout("Update();", 2000);
+		function Update() {
+			counter++;
+			window.status = "The counter is now at " + counter;
+			document.form1.input1.value = "The counter is now at " + counter;
+			//set another timeout for the next count
+			ID = window.setTimeout("Update();", 2000);
+		}
+	</script>
+	<form name="form1">
+		First Value: <input type="text" size="40" name="input1"><br> 
+		<input type="button" value="Reset" onClick="counter = 0;"><br> 
+		<input type="button" value="Stop" onClick="window.clearTimeout(ID);"> 
+	</form>
+</body>
+</html>

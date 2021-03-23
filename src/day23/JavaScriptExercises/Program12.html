@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>String Manipulation</title>
+</head>
+<body>
+	Manipulate the string ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	<br>
+	<script>
+		alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		
+		document.write("substring(0, 4) " + alpha.substring(0, 4) + "<br>"); // returns "ABCD". 
+		document.write("substring(10, 12) " + alpha.substring(10, 12) + "<br>"); // returns "KL". 
+		document.write("substring(12, 10) " + alpha.substring(12, 10) + "<br>"); // also returns "KL". 
+		document.write("substring(6, 7) " + alpha.substring(6, 7) + "<br>"); //returns "G". 
+		document.write("substring(24, 26) " + alpha.substring(24, 26) + "<br>"); //returns "YZ". 
+		document.write("substring(0, 26) " + alpha.substring(0, 26) + "<br>"); //returns the entire alphabet. 
+		document.write("substring(6, 6) " + alpha.substring(6, 6) + "<br>"); // returns the null value, an empty string.
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+	<script>
+		function display() {
+			// this.name = "John";
+			// this.getName = function() {
+			//   return this.name;
+			// }
+			alert(this.name);
+		}
+
+		function Person() {
+			this.name = "John";
+			this.display = display;
+		}
+
+		// var obj = new Person();
+		var obj = new window['Person']();
+		obj.display();
+	</script>
+</body>
+</html>

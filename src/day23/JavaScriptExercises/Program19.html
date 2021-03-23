@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Forms</title>
+</head>
+<body>
+	onClick() method on a form.
+	<br>
+	<script>
+		function total() {
+			var x = parseInt(document.Simple.first.value);
+			var y = parseInt(document.forms[0].elements[1].value);
+			document.Simple.sum.value = x + y;
+		}
+	</script>
+	<form name="Simple">
+		First Value: <input type="text" size="4" name="first" value=" "><br> 
+		Second Value: <input type="text" size="4" name="second" value=" "><br> 
+		<input type="button" value="Calculate" onClick="total();"><br> 
+		Sum: <input type="text" name="sum" value=" "><br>
+	</form>
+</body>
+</html>

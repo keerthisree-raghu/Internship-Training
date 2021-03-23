@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Functions</title>
+</head>
+<body>
+	Create an function to display the properties of another function.
+	<br>
+	<script>
+		function display() {
+			document.write("Name: " + this.name + "<br>");
+			document.write("Address: " + this.address);
+		}
+		
+		function person(name, address) {
+			this.name = name;
+			this.address = address;
+			this.display = display;
+		}
+		
+		var obj = new person("Keerthi", "Chennai");
+		obj.display();
+	</script>
+</body>
+</html>
